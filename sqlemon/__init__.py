@@ -2,6 +2,8 @@ import os
 import pkg_resources
 
 import sqlemon.connection_strings as sqlcs
+import sqlalchemy as sa
+import sqlalchemy.orm as orm
 import yaml
 
 
@@ -42,6 +44,14 @@ def production_mode():
         return True
     else:
         return False
+
+
+def running_as_server():
+    mode = os.getenv('SERVER_SOFTWARE')
+    if mode is None:
+        return False
+    else:
+        return True
 
 
 def get_sqlalchemy_url_for_client(
@@ -106,6 +116,16 @@ def get_sqlalchemy_url_for_server(project, password=None):
         how to procede. One option would be to make a .gitignore'd file with the
         local connection info.
         """
+
+
+def get_sessionmaker(project, db_config=None, password=None, echo=False):
+    if running_as_server():
+        url = get_sqlalchemy_url_for_server(project, password)
+    else:
+        url = get_sqlalchemy_url_for_client(project, db_config)
+    engine = sa.create_engine(url, echo=echo)
+    session_maker = orm.sessionmaker(bind=engine)
+    return session_maker
 
 
 def visualize_schema(base, outfile_name):
