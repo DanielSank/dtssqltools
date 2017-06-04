@@ -34,7 +34,7 @@ The file layout should look something like this:
 .. code-block::
 
     ├── PROJECT_ROOT/
-    │    ├── SQLEMON_PROJECT_NAME/  <-- important
+    │    ├── PROJECT_NAME/  <-- important
     │    │   ├── __init__.py
     │    │   ├── alembic.ini
     │    │   ├── alembic/
@@ -46,10 +46,10 @@ The file layout should look something like this:
     |    ├── secrets.py             <-- important, GITIGNORE THIS FILE!
     │    └── app.yaml               <-- important
 
-You must also have a directory at ``~/.SQL_PROJECT_NAME`` with a couple of files described below.
+You must also have a directory at ``~/.PROJECT_NAME`` with a couple of files described below.
 Here are the required layouts of the required files:
 
-- ``~/.SQL_PROJECT_NAME/config.yaml``
+- ``~/.PROJECT_NAME/config.yaml``
   ::
 
     ---
@@ -61,7 +61,7 @@ Here are the required layouts of the required files:
         HOST: "localhost"
         PORT: 3306
 
-- ``~/.SQL_PROJECT_NAME/auth-token.json``: This is your proxy's user account auth token.
+- ``~/.PROJECT_NAME/auth-token.json``: This is your proxy's user account auth token.
 
 - ``PROJECT_ROOT/app.yaml``
   ::
