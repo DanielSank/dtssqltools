@@ -46,6 +46,22 @@ The file layout should look something like this:
     |    ├── secrets.py             <-- important, GITIGNORE THIS FILE!
     │    └── app.yaml               <-- important
 
+SQLemon needs ``app.yaml`` to have the following environment variables:
+
+.. code-block::
+
+    env_variables:
+        INSTANCE_CONNECTION_NAME: ...
+        CLOUD_SQL_USER: <Cloud SQL user name>
+
+When running in production mode on App Engine, SQLemon will get the root user's SQL password from ``secrets.py``, which should look like this:
+
+.. code-block::
+
+    CLOUD_SQL_PASSWORD = <Cloud SQL user password>
+
+MAKE SURE YOU ADD ``secrets.py`` TO GITIGNORE SO YOU DON'T PUT SECRETS IN VERSION CONTROL!
+
 You must also have a directory at ``~/.PROJECT_NAME`` with a couple of files described below.
 Here are the required layouts of the required files:
 
@@ -62,18 +78,6 @@ Here are the required layouts of the required files:
         PORT: 3306
 
 - ``~/.PROJECT_NAME/auth-token.json``: This is your proxy's user account auth token.
-
-- ``PROJECT_ROOT/app.yaml``
-  ::
-
-      env_variables:
-        INSTANCE_CONNECTION_NAME: ...
-        CLOUD_SQL_USER: <Cloud SQL user name>
-
-- ``PROJECT_ROOT/secrets.py``
-  ::
-
-      CLOUD_SQL_PASSWORD = <Cloud SQL user password>
 
 How to release
 **************
