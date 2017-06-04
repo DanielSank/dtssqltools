@@ -43,6 +43,7 @@ The file layout should look something like this:
     │    │   └── main.py
     │    ├── README.md
     │    ├── appengine_config.py
+    |    ├── secrets.py             <-- important, GITIGNORE THIS FILE!
     │    └── app.yaml               <-- important
 
 You must also have a directory at ``~/.SQL_PROJECT_NAME`` with a couple of files described below.
