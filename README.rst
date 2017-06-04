@@ -2,7 +2,7 @@
 SQLemon
 *******
 
-Suppose you're working on a project that uses Google App Engine, Google Cloud SQL, and sqlalchemy.
+Suppose we're working on a project that uses Google App Engine, Google Cloud SQL, and sqlalchemy.
 In the course of testing, deploying etc., we want to connect to a couple of databases in different ways:
 
 * App Engine project talking to production db
