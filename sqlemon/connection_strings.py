@@ -15,14 +15,18 @@ SQLAlchemy connection URL's for local and cloud databases, connecting either
 from test server or local tools. These all point to the the specific database
 used by your project.
 """
-APP_ENGINE_CLOUD = "mysql+mysqldb://{}:{}@/{}?unix_socket=/cloudsql/{}"
+APP_ENGINE_CLOUD = ("mysql+mysqldb://{}:{}@/{}"
+                    "?unix_socket=/cloudsql/{}"
+                    "?charset=utf8")
 # App Engine to Cloud
 # Args: user, password, database, instance connection name
 
-LOCAL_TOOLS_CLOUD = "mysql+pymysql://{}:{}@/{}?unix_socket=/tmp/cloudsql/{}"
+LOCAL_TOOLS_CLOUD = ("mysql+pymysql://{}:{}@/{}"
+                     "?unix_socket=/tmp/cloudsql/{}"
+                     "?charset=utf8")
 # e.g. Alembic to Cloud
 # Args: user, password, database, instance connection name
 
-LOCAL_TOOLS_LOCAL = "mysql+pymysql://{}:{}@{}:{}/{}"
+LOCAL_TOOLS_LOCAL = "mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8"
 # e.g. Alembic to local database
 # Args: user, password, host, port, database

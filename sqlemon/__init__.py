@@ -108,7 +108,7 @@ def get_sqlalchemy_url_for_server(project, password=None):
                 project,
                 os.environ['INSTANCE_CONNECTION_NAME'])
     else:
-        return r'mysql+pymysql://root@localhost/{}'.format(project)
+        return r'mysql+pymysql://root@localhost/{}?charset=utf8'.format(project)
         """
         It would be better to parametrize the the username etc. but I'm not sure
         how to get the dev server to read from the local file system. We don't
