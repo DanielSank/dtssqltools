@@ -9,7 +9,7 @@ setup(name=project_name,
                'bin/cloud_sql_proxy',
                'bin/start_mysql_client'],
       version=version,
-      description="Manage sqlalchemy connections to local test and prod db's",
+      description="Manage sqlalchemy connections to Google Cloud SQL",
       author='Daniel Sank',
       license='MIT',
       author_email='sank.daniel@gmail.com',
@@ -26,4 +26,3 @@ setup(name=project_name,
           'sqlalchemy-schemadisplay'
           ],
 )
-
